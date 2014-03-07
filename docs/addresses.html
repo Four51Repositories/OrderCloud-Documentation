@@ -1,0 +1,150 @@
+<h1 class="page-header"><i class="fa fa-map-marker text-muted"></i> Address</h1>
+
+<h3 class="text-primary">GET</h3>
+<pre><code>Address.get(address.InteropID, function(add) {
+$scope.address = add;
+};</code></pre>
+
+<h3 class="text-success">SAVE</h3>
+<pre><code>Address.save(address,
+function(add) {
+$scope.address = add;
+},
+function(ex) {
+if (ex.Code.is('ObjectExistsException')) {
+$scope.objectExists = true;
+}
+console.log(ex.Message);
+});</code></pre>
+
+<h3 class="text-danger">DELETE</h3>
+<pre><code>Address.delete(address, function() {
+$location.path($scope.return);
+});</code></pre>
+
+
+<h3>Properties</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Definition</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>ID</td>
+            <td>string</td>
+            <td>false</td>
+            <td>Internal encrypted ID</td>
+        </tr>
+        <tr>
+            <td>InteropID</td>
+            <td>string</td>
+            <td>false</td>
+            <td>Interoperability ID to be used in order to reference address in future calls</td>
+        </tr>
+        <tr>
+            <td>AddressName</td>
+            <td>string</td>
+            <td>true</td>
+            <td>Address name value</td>
+        </tr>
+        <tr>
+            <td>FirstName</td>
+            <td>string</td>
+            <td>true/false</td>
+            <td>Address first name value. Required for billing addresses.</td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>string</td>
+            <td>true/false</td>
+            <td>Address last name value. Required for billing addresses.</td>
+        </tr>
+        <tr>
+            <td>CompanyName</td>
+            <td>string</td>
+            <td>false</td>
+            <td>Company name value</td>
+        </tr>
+        <tr>
+            <td>Street1</td>
+            <td>string</td>
+            <td>true</td>
+            <td>Address street 1 value</td>
+        </tr>
+        <tr>
+            <td>Street2</td>
+            <td>string</td>
+            <td>false</td>
+            <td>Address street 2 value</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>string</td>
+            <td>true</td>
+            <td>Address city value</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>string</td>
+            <td>true/false</td>
+            <td>Address state value. Two characters. Required or address with country of US, CA, or NL. Values can be found in services/resourceService.js</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>string</td>
+            <td>true</td>
+            <td>Address country value. Two characters.Values can be found in services/resourceService.js</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>string</td>
+            <td>false</td>
+            <td>Address phone number value</td>
+        </tr>
+        <tr>
+            <td>IsCustEditable</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>Whether the user can edit the address. This value is false for addresses created and assigned through the admin interface.</td>
+        </tr>
+        <tr>
+            <td>IsShipping</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>Whether the address can be used as a shipping address.</td>
+        </tr>
+        <tr>
+            <td>IsBilling</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>Whether the address can be used as a billing address.</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<h3>Example Object</h3>
+<pre><code>{
+    "ID":"3HCy12XzuO7TetqR-koROvA-e-e",
+    "InteropID":"addressInteropID25"
+    "AddressName":"Home",
+    "CompanyName":"",
+    "Street1":"123 Sample St",
+    "Street2":"",
+    "City":"Minneapolis",
+    "State":"MN",
+    "Zip":"55417",
+    "Country":"US",
+    "Phone":"5551234567",
+    "IsCustEditable":true,
+    "FirstName":"John",
+    "LastName":"Doe",
+    "IsShipping":true,
+    "IsBilling":true
+}</code></pre>
