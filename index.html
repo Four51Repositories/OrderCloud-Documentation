@@ -219,14 +219,211 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Internal encrypted ID</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ConvertFromTempUser</td>
+                                        <td>boolean</td>
+                                        <td>false</td>
+                                        <td>Whether the user was generated from a template user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>string</td>
+                                        <td>true</td>
+                                        <td>Unique username for user. This must be unique across the entire Four51 database.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>InteropID</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Unique interoperability ID used to reference user in future calls.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password</td>
+                                        <td>string</td>
+                                        <td>true</td>
+                                        <td>Password value for user. This value will always be null in the response for security reasons.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CurrentPassword</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NewPassword</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ConfirmPassword</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FirstName</td>
+                                        <td>string</td>
+                                        <td>true</td>
+                                        <td>First name value for user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LastName</td>
+                                        <td>string</td>
+                                        <td>true</td>
+                                        <td>Last name value for user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>string</td>
+                                        <td>true</td>
+                                        <td>Email address value for user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Phone number value for user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active</td>
+                                        <td>boolean</td>
+                                        <td>true</td>
+                                        <td>Whether the user is currently active or inavtive.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CompanyID</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Internal encrypted ID of company that the user belongs to, which can be obtained through Company.get.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Company</td>
+                                        <td>object</td>
+                                        <td>false</td>
+                                        <td>Object containing information regarding the company the user belongs to.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AcceptConditions</td>
+                                        <td>boolean</td>
+                                        <td>true</td>
+                                        <td>Whether the user has accepted the terms and conditions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TermsAccepted</td>
+                                        <td>date</td>
+                                        <td>false</td>
+                                        <td>Date and time the user accepted the terms and conditions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LastLogon</td>
+                                        <td>date</td>
+                                        <td>false</td>
+                                        <td>Date and time the user last logged into Four51's Order Cloud.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PartyID</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Internal encrypted ID of the user's party.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CurrentOrderID</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>Internal encrypted ID of the user's current order. Null if the user does not currently have an order open.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PasswordExpirationDate</td>
+                                        <td>date</td>
+                                        <td>false</td>
+                                        <td>Date and time the user's password expires. Null if the user's password will never expire.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IsPasswordSecure</td>
+                                        <td>boolean</td>
+                                        <td>false</td>
+                                        <td>Whether the user's password is considered a secure value based on the company's password settings.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Culture</td>
+                                        <td>object</td>
+                                        <td>false</td>
+                                        <td>Object containing information regarding the user's culture settings.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CultureUIOverride</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CultureUI</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CultureInfo</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TimeZoneIndex</td>
+                                        <td>integer</td>
+                                        <td>false</td>
+                                        <td>Integer value of the user's time zone based on <a href="http://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx" target="_blank">Microsoft's Time Zone Index</a>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TimeZone</td>
+                                        <td>object</td>
+                                        <td>false</td>
+                                        <td>Object containing information regarding the user's time zone.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td>string</td>
+                                        <td>false</td>
+                                        <td>User's type value. This will always be 'Customer' for buyer end users.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CustomFields</td>
+                                        <td>array</td>
+                                        <td>false</td>
+                                        <td>Array of objects containing information regarding custom order fields the user has assigned to them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Permissions</td>
+                                        <td>array></td>
+                                        <td>false</td>
+                                        <td>Array of strings regarding which permissions the user has assigned to them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CostCenters</td>
+                                        <td>array</td>
+                                        <td>false</td>
+                                        <td>Array of objects containing information regarding cost centers assigned to the user.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ShipMethod</td>
+                                        <td>object</td>
+                                        <td>false</td>
+                                        <td>Object containing information regarding the ship method assigned to the user's company.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AvailableCreditCards</td>
+                                        <td>array</td>
+                                        <td>false</td>
+                                        <td>Array containing credit card types available to the user. This array will be empty if the user does not have permission to pay via credit card or if the user's buyer company does not have a merchant account configured and assigned.</td>
+                                    </tr>
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
